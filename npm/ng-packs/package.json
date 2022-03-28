@@ -5,9 +5,9 @@
   "scripts": {
     "ng": "nx",
     "nx": "nx",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:all": "nx run-many --target=build --all --exclude=dev-app,schematics --prod && yarn build:schematics",
+    "start": "node init && ng serve",
+    "build": "node init && ng build",
+    "build:all": "node init && nx run-many --target=build --all --exclude=dev-app,schematics --prod && yarn build:schematics",
     "test": "ng test --detect-open-handles=true --run-in-band=true --watch-all=true",
     "test:all": "nx run-many --target=test --all",
     "lint": "nx workspace-lint && ng lint",
@@ -30,8 +30,8 @@
     "help": "nx help",
     "compile:ivy": "yarn ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points --tsconfig './tsconfig.prod.json' --source node_modules",
     "postinstall": "node ./decorate-angular-cli.js && yarn compile:ivy",
-    "build:schematics": "cd scripts && yarn && yarn build:schematics && cd ..",
-    "dev:schematics": "tsc -p packages/schematics/tsconfig.json -w",
+    "build:schematics": "node init && cd scripts && yarn && yarn build:schematics && cd ..",
+    "dev:schematics": "node init && tsc -p packages/schematics/tsconfig.json -w",
     "ci": "yarn affected:lint && yarn affected:build && yarn affected:test",
     "lerna": "lerna"
   },
