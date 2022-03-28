@@ -8,4 +8,6 @@ public class BlogPostGetListInput : PagedAndSortedResultRequestDto
     public string Filter { get; set; }
 
     public Guid? BlogId { get; set; }
+    
+    public Guid? AuthorId { get; set; }
 }
